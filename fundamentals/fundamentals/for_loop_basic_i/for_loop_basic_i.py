@@ -9,12 +9,13 @@ while v <= 1000:
     print(v)            
     v += 5"""                # Prints all the multiples of 5 from 5 to 1,000 in a while loop
 
-for count in range(1, 101):
-    print(count)        # Print integers 1 to 100
-    if count % 5 == 0:  
-        print("Coding") # If count is divisible by 5, print "Coding"
-    if count % 10 == 0:
-        print("Coding Dojo") # If count is divisible by 10, print "Coding Dojo".
+for count in range(1, 101, 1):
+    if count % 10 == 0:  
+        print("Coding Dojo")     # If count is divisible by 5, print "Coding"
+    elif count % 5 == 0:
+        print("Coding")         # If count is divisible by 10, print "Coding Dojo".
+    else:
+        print(count)                # Print integers 1 to 100
 
 
 sum = 0
