@@ -41,13 +41,12 @@ students = [
     ]
 
 def iterateDictionary(some_list):
-    new_str = ""
-    for i in range(0, len(some_list), 1):
-        new_str += "first_name - " + some_list[i]['first_name'] + ","
-        for j in range(1, len(some_list[i]), 1):
-            new_str += " last_name - " + some_list[i]['last_name'] + "\n"
-    return new_str
-print(iterateDictionary(students))
+    for i in range(0, len(some_list)-1, 1):
+        new_str = ""
+        for key, val in some_list[i].items():
+            new_str += f" {key} - {val},"
+        # print(new_str)
+iterateDictionary(students)
 
 
 
@@ -57,7 +56,6 @@ def iterateDictionary2(key_name, some_list):
         print(some_list[i][key_name])
 iterateDictionary2('first_name', students)
 iterateDictionary2('last_name', students)
-print("\n-------------")
 
 
 
@@ -67,12 +65,10 @@ dojo = {
     'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
 def printInfo(some_dict):
-    print(str(7) + " LOCATIONS")
-    for i in range(0, len(some_dict['locations']), 1):
-        print(some_dict['locations'][i])
-    print("\n-------------")
-    print(str(8) + " INSTRUCTORS")
-    for i in range(0, len(some_dict['instructors']), 1):
-        print(some_dict['instructors'][i])
+    for key, value in some_dict.items():
+        print("\n-------------")
+        print(f"{len(some_dict[key])} {key.upper()} ")
+        for i in range(0, len(value), 1):
+            print(value[i])
 
 printInfo(dojo)
