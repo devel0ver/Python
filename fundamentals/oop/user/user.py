@@ -5,11 +5,11 @@ class User:
 
     def make_deposit(self,amount):    
         self.account_balance += amount
-        return self.account_balance
+        return self
 
     def make_withdrawl(self,amount):    
         self.account_balance -= amount
-        return self.account_balance
+        return self
 
 
     def display_user_balance(self):
@@ -39,20 +39,11 @@ third_user_data = {
 }
 third_user = User(third_user_data)
 
-first_user.make_deposit(200)
-first_user.make_deposit(300)
-first_user.make_deposit(600)
-first_user.make_withdrawl(450)
+first_user.make_deposit(200).make_deposit(300).make_deposit(600).make_withdrawl(450)
 
-second_user.make_deposit(400)
-second_user.make_deposit(100)
-second_user.make_withdrawl(800)
-second_user.make_withdrawl(220)
+second_user.make_deposit(400).make_deposit(100).make_withdrawl(800).make_withdrawl(220)
 
-third_user.make_withdrawl(1600)
-third_user.make_withdrawl(930)
-third_user.make_withdrawl(489)
-third_user.make_deposit(370)
+third_user.make_withdrawl(1600).make_withdrawl(930).make_withdrawl(489).make_deposit(370)
 
 print("\n===========================")
 first_user.display_user_balance()
