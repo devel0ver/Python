@@ -23,7 +23,6 @@
             width: 330px;
             height: 300px;
             margin: 15px 0;
-            background-color: skyblue;
             border: 3px solid black;
             border-radius: 10px;
         }
@@ -32,9 +31,9 @@
 <body>
     <h1>Welcome!</h1>
     <div class="cont">
-        <div class="boxes"></div>
-        <div class="boxes"></div>
-        <div class="boxes"></div>
+        {% for boxes in range(0,num,1) %}
+            <div style ="background-color: {{color}};" class="boxes"></div>
+        {% endfor %}
     </div>
 </body>
 </html>

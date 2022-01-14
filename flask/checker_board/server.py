@@ -1,9 +1,9 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route('/play')
+@app.route('/')
 def play():
-    return render_template("index.html", num=3, color = "skyblue")
+    return render_template("index.html")
 
 @app.route('/play/<int:num>')
 def count(num):

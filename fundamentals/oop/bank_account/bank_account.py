@@ -45,5 +45,11 @@ savings.deposit(10).deposit(50).deposit(150).withdraw(600).yeild_interest().disp
 checking.deposit(100).deposit(200).withdraw(200).withdraw(30).withdraw(350).withdraw(1200).yeild_interest().display_account_info()
 BankAccount.print_acc_info()
 print("================")
-print(BankAccount.acc_info)
-print("======================================\t\t============================================")
+# print(BankAccount.acc_info)
+# print("======================================\t\t============================================")
+
+
+import urllib.request
+response = urllib.request.urlopen("http://www.codingdojo.com")
+html = response.read()
+print(html)
