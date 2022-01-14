@@ -1,9 +1,10 @@
+from turtle import color
 from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def play():
-    return render_template("index.html", rows=8, col=8)
+    return render_template("index.html", rows=8, col=8, color="red", color2="black")
 
 @app.route('/<int:col>/<string:color>/<string:color2>')
 def count(col, color, color2):
