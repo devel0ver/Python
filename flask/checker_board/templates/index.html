@@ -4,125 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
     <title>Playground</title>
-    <style>
-        h1{
-            text-align: center;
-            font-size: 2.4rem;
-            font-weight: 500;
-        }
-        .cont{
-            width: 100%;
-            height: fit-content;
-            margin: 0px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .boxes{
-            width: 250px;
-            height: 300px;
-            margin: 0;
-            border: 1px solid black;
-        }
-        .color1{
-            background-color: red;
-        }
-        .color2{
-            background-color: black;
-        }
-    </style>
 </head>
+<style>
+    h1{
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    .color1{
+        background-color: {{color}};
+    }
+    .color2{
+        background-color: {{color2}};
+    }
+    table{
+        margin: 0 auto;
+    }
+    td{
+        width: 80px;
+        height: 80px;
+    }
+    tr{
+        display: flex;
+    }
+    
+</style>
 <body>
-    <h1>Welcome!</h1>
-    <!-- <div class="cont">
-        {#% for boxes in range(0,num,1) %}
-            <div style ="background-color: {{color}};" class="boxes"></div>
-        {% endfor %#}
-        
-        
-    </div> -->
+    <h1>**CheckerBoard!**</h1>
     <table>
+    {% for cols in range(col) %}
         <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
+            {% for row in range(rows) %}
+                <td class="color{{ (cols+row)%2+1 }}"></td>
+            {% endfor %}
         </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
-        <tr>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-            <td class="color1"></td>
-            <td class="color2"></td>
-        </tr>
+    {% endfor %}
     </table>
 </body>
 </html>
