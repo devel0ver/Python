@@ -6,36 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
     <title>Playground</title>
+    <style>
+        h1{
+            width: 40%;
+            margin: 10px auto;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .color1{
+            background-color: {{color}};
+        }
+        .color2{
+            background-color: {{color2}};
+        }
+        table{
+            margin: 0 auto;
+        }
+        td{
+            width: 80px;
+            height: 80px;
+        }
+        tr{
+            display: flex;
+        }
+    </style>
 </head>
-<style>
-    h1{
-        text-align: center;
-        font-size: 2.5rem;
-    }
-    .color1{
-        background-color: {{color}};
-    }
-    .color2{
-        background-color: {{color2}};
-    }
-    table{
-        margin: 0 auto;
-    }
-    td{
-        width: 80px;
-        height: 80px;
-    }
-    tr{
-        display: flex;
-    }
-    
-</style>
 <body>
-    <h1>**CheckerBoard!**</h1>
+    <h1 style="background-color: {{color2}}; color: {{color}};">**CheckerBoard!**</h1>
     <table>
-    {% for cols in range(col) %}
+    {% for row in range(rows) %}
         <tr>
-            {% for row in range(rows) %}
+            {% for cols in range(col) %}
                 <td class="color{{ (cols+row)%2+1 }}"></td>
             {% endfor %}
         </tr>

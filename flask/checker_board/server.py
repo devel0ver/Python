@@ -4,15 +4,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def play():
-    return render_template("index.html", rows=8, col=8, color="red", color2="black")
+    return render_template("index.html", col=8, rows=8, color="red", color2="black")
 
-@app.route('/<int:col>/<string:color>/<string:color2>')
-def count(col, color, color2):
-    return render_template("index.html", col=col, rows=8, color = color, color2=color2)
+@app.route('/<int:rows>')
+def columns(rows):
+    return render_template("index.html", rows=rows, col=8, color = "red", color2="black")
 
-@app.route('/<int:rows>/<int:col>')
-def colors(rows, col):
-    return render_template("index.html", rows = rows, col = col)
+@app.route('/<int:col>/<int:rows>')
+def columns_rows(rows, col):
+    return render_template("index.html", rows=rows, col=col, color = "red", color2="black")
+
+@app.route('/<int:col>/<int:rows>/<string:color>/<string:color2>')
+def colors(rows, col, color, color2):
+    return render_template("index.html", rows = rows, col = col, color=color, color2=color2)
 
 
 if __name__ == "__main__":
