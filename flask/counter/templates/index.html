@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <title>counter</title>
+</head>
+<body>
+    <div style="height: 700px; margin-top: 100px">
+        <h1 class="text-center display-1 fw-normal">Counter</h1>
+        {% if session['num'] < 2 %}
+            <h1 class="text-center">{{session['num']}} time</h1>
+        {% else %}
+            <h1 class="text-center">{{session['num']}} times</h1>
+        {% endif %}
+        <div style="width: 50%;" class="d-flex justify-content-around p-3 m-auto">
+            <a href="/"><button class="btn btn-primary btn-lg chng">Add One Visit</button></a>
+            <form action="/" method='post'>
+                <button type="submit" class="btn btn-primary btn-lg chng">Add Two Visits</button> 
+            </form>
+            <a href="/destroy_session"><button type="button" class="btn btn-danger btn-lg change">Reset</button></a>
+        </div>
+    </div>
+    <script src="static/javascript/script.js"></script>
+</body>
+</html>
