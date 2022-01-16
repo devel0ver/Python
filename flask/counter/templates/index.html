@@ -10,10 +10,10 @@
 <body>
     <div style="height: 700px; margin-top: 100px">
         <h1 class="text-center display-1 fw-normal">Counter</h1>
-        {% if session['num'] < 2 %}
-            <h1 class="text-center">{{session['num']}} time</h1>
+        {% if session['visits'] < 2 %}
+            <h1 class="text-center">{{session['visits']}} time</h1>
         {% else %}
-            <h1 class="text-center">{{session['num']}} times</h1>
+            <h1 class="text-center">{{session['visits']}} times</h1>
         {% endif %}
         <div style="width: 50%;" class="d-flex justify-content-around p-3 m-auto">
             <a href="/"><button class="btn btn-primary btn-lg chng">Add One Visit</button></a>
