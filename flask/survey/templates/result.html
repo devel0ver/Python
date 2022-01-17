@@ -10,7 +10,8 @@
 <body class="bg-dark">
     <div class="album py-5">
         <div class="container bg-secondary w-50 p-5 bg-opacity-50">
-            <h1 class="mb-3 text-primary display-4 fw-bold">{{session["name"]}}</h1>
+            <h1 class="mb-3 text-primary display-4 fw-bold">{{session['name']}}</h1>
+            <p class="text-light">Gender:  {{session['gender']}}</p>
             <p class="text-light">Dojo Location:  {{session["location"]}}</p>
             <p class="text-light">Favorite Language:  {{session["language"]}}</p>
             {% if session['comments'] == "" %}

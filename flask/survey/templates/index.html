@@ -13,11 +13,21 @@
             <form  class="text-light p-5" action="/result" method="post">
                 <h1  class="mb-3 text-dark">Dojo Survey</h1>
                 <div class="mb-3 col-md-12">
-                    <label class="form-label " for="name">Name:</label>
-                    <input class="form-control" type="text" id="name" name="name" required>
+                    <label class="form-label" for="name">Name:</label>
+                    <input class="form-control" name="name" type="text" id="name" required>
                 </div>
+                <p class="mb-1">Gender:</p>
+                <div class="mb-2 col-md-12 form-check">
+                    <input class="form-check-input" type="radio" value="Male" name="sex" id="male" required>
+                    <label for="male">Male</label>
+                </div>
+                <div class="mb-3 col-md-12 form-check">
+                    <input class="form-check-input" type="radio" value="Female" name="sex" id="female" required>
+                    <label for="female">Female</label>
+                </div>
+
                 <div class="mb-3 col-md-12">
-                    <p>Dojo Location:</p>
+                    <p>Location:</p>
                     <select name='location' id="loc" class="form-select" required>
                         <option selected disabled value="">-- Select A Location --</option>
                         <option value='Alabama'>Alabama</option>
@@ -73,6 +83,7 @@
                         <option value='Wyoming'>Wyoming</option>
                     </select>
                 </div>
+
                 <div class="mb-3 col-md-12">
                     <p>Favorite Language:</p>
                     <select name='language' id="lang" class="form-select" required>
@@ -87,11 +98,21 @@
                         <option value='R'>R</option>
                     </select>
                 </div>
+
                 <div class="mb-3 col-md-12">
                     <label for="comment" class="form-label">Comments:</label>
                     <textarea name='comments' class="form-control" rows="5" placeholder="Leave a comment..."></textarea>
                 </div>
+
+                <div class="mb-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        By clicking this box, I have read and agree to the <a class="text-info" href="/">Privacy Policy</a> and <a class="text-info" href="/">Site Terms</a>
+                    </label>
+                </div>
+
                 <button class="btn btn-dark" type="submit">Submit</button>
+
             </form>
         </div>
     </div>

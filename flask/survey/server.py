@@ -13,10 +13,15 @@ def info():
     session['location'] = request.form['location']
     session['language'] = request.form['language']
     session['comments'] = request.form['comments']
-    if session['comments'] == "":
-        print(f"The name is {session['name']}, lives in {session['location']}, loves {session['language']} language.\n( {session['name']} comments: There are no comments )")
+    session['gender'] = request.form['sex']
+    if session['comments'] == '' and session['gender'] == 'Male':
+        print(f"Gender: {session['gender']}, his name is {session['name']}, he lives in {session['location']}, and he loves {session['language']}.\n( {session['name']}'s comments: There are no comments )")
+    elif session['comments'] == '' and session['gender'] == 'Female':
+        print(f"Gender: {session['gender']}, her name is {session['name']}, she lives in {session['location']}, and she loves {session['language']}.\n( {session['name']}'s comments: There are no comments )")
+    elif session['gender'] == 'Male':
+        print(f"Gender: {session['gender']}, his name is {session['name']}, he lives in {session['location']}, and he loves {session['language']}.\n( {session['name']}'s comments: {session['comments']} )")
     else:
-        print(f"The name is {session['name']}, lives in {session['location']}, loves {session['language']} language.\n( {session['name']} comments: {session['comments']} )")
+        print(f"Gender: {session['gender']}, her name is {session['name']}, she lives in {session['location']}, and she loves {session['language']}.\n( {session['name']}'s comments: {session['comments']} )")
     return redirect('/result')
 
 @app.route('/result')
