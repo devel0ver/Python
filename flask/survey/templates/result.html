@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+    <title>Dojo Survey</title>
+</head>
+<body class="bg-dark">
+    <div class="album py-5">
+        <div class="container bg-secondary w-50 p-5 bg-opacity-50">
+            <h1 class="mb-3 text-primary display-4 fw-bold">{{session["name"]}}</h1>
+            <p class="text-light">Dojo Location:  {{session["location"]}}</p>
+            <p class="text-light">Favorite Language:  {{session["language"]}}</p>
+            {% if session['comments'] == "" %}
+                <p class="text-light">Comments: There are no comments </p>
+            {% else %}
+                <p class="text-light">Comments: {{session['comments']}}</p>
+            {% endif %}
+            <div class="border border-dark mb-3"></div>
+            <a href="/" class="text-primary fs-5">Home</a>
+        </div>
+    </div>
+</body>
+</html>
