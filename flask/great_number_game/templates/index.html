@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+    <title>Great Number Game</title>
+    
+</head>
+<body class="bg-dark bg-opacity-25">
+    <h1 class="text-center fw-bold text-dark display-5"> Welcome To The Great Number Game!</h1>
+    <p class="text-center text-dark fs-4"> I am thinking of a number between 1 and 100</p>
+    <p class="text-center text-dark fs-4"> You have guessed {{count}} number of times</p>
+    {% if location == 'HIGH' or location == 'LOW' and count < 6%}
+    <div style="width: 30%;" class="bg-danger bg-opacity-50 m-auto">
+        <h1 class="text-center text-danger display-3">TOO {{location}}!</h1>
+    </div>
+    {% elif location == 'HIGH' or location == 'LOW' and count == 6 %}
+    <div style="width: 30%;" class="bg-danger bg-opacity-25 m-auto">
+        <h1 class="text-center text-danger display-6">YOU LOST!</h1>
+        <a class="d-md-flex justify-content-md-center text-decoration-none" href="/reset"><button class="btn btn-danger mb-2">TRY AGAIN!</button></a>
+    </div>
+    {% elif location == 'correct' and count <= 6%}
+        <form style="width: 40%;" class="bg-success m-auto mb-3 row g-3" action="/leaderboard" method="post">
+            <div class="col-md-9 m-auto">
+                <p class="pt-3 text-dark fs-3 text-center">YOU GOT IT!! <br> {{session['user_guess']}} is the correct number</p>
+                <div class="col-auto">
+                    <label class="mb-2" for="name">Name: </label>
+                    <input class="mb-3 form-control" id="name" type="text" name="name" placeholder="Enter your name" required oninvalid="this.setCustomValidity('Please enter your name!')" oninput="this.setCustomValidity('')">
+                </div>
+                <div class="col-auto mb-3">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+    {% if location != 'correct' %}
+        <form style="width: 25%;" class="bg-dark m-auto" action="/guess" method="post">
+            <div class="col-md-9 m-auto">
+                <p class="pt-3 text-warning fs-5 text-center">Take a guess!!</p>
+                <input class="mb-3 form-control" type="number" name="num" placeholder="Enter your guess" required oninvalid="this.setCustomValidity('Please enter a number!')" oninput="this.setCustomValidity('')">
+                <div class="d-md-flex justify-content-md-center">
+                {% if count == 6 %}
+                    <button class="btn btn-warning mb-4" disabled>Guess</button>
+                {% elif location == 'correct' and count <= 6 %}
+                    <button class="btn btn-warning mb-4" disabled>Guess</button>
+                {% else %}
+                    <button class="btn btn-warning mb-4">Guess</button>
+                {% endif %}
+                </div>
+            </div>
+        </form>
+    {% endif %}
+    <div class="d-md-flex justify-content-md-between w-25 m-auto">
+        <a href="/reset" class="text-danger fs-2">Reset</a>
+        <a href="/leaderboard" class="text-dark opacity-75 fs-2 mb-4">leaderboard</a>
+    </div>
+</body>
+</html>
+
+
+
+
