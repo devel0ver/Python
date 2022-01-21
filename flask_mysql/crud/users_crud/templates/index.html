@@ -21,6 +21,7 @@
                     <th scope="col">Last Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Created At</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +31,12 @@
                     <td>{{user.first_name}}</td>
                     <td>{{user.last_name}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.created_at}}</td>
+                    <td>{{user.created_at.strftime("%B %d %Y")}}</td>
+                    <td>
+                        <a href="/{{user.id}}">Show</a> |
+                        <a href="/{{user.id}}/edit">Edit</a> |
+                        <a href="/{{user.id}}/delete" class="text-danger">Delete</a>  
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

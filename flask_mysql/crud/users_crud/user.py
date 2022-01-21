@@ -37,3 +37,31 @@ class User:
         results = connectToMySQL('users_schema').query_db(query, data)
         print(results)
         return results
+
+    # -------------------------------------------
+    # @classmethod Display one user from database
+    #--------------------------------------------
+    @classmethod
+    def display_user(cls, data):
+        query = "SELECT * FROM users WHERE id = %(user_id)s;"
+        results = connectToMySQL('users_schema').query_db(query, data)
+        print(results)
+        return cls(results[0])
+
+    # -------------------------------------------
+    # @classmethod Update one user info
+    #--------------------------------------------
+    @classmethod
+    def update_user(cls, data):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE id = %(user_id)s;"
+        results = connectToMySQL('users_schema').query_db(query, data)
+        print(results)
+
+    # -------------------------------------------
+    # @classmethod Delete one user 
+    #--------------------------------------------
+    @classmethod
+    def delete_user(cls, data):
+        query = "DELETE FROM users WHERE id = %(user_id)s"
+        results = connectToMySQL('users_schema').query_db(query, data)
+        print(results)
