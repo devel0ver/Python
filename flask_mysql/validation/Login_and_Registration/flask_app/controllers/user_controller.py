@@ -37,11 +37,6 @@ def add_user():
     session["user_id"] = add_user
     return redirect('/dashboard')
 
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect("/")
-
 
 #---------------------------
 # The Login Form 
@@ -73,3 +68,12 @@ def dashboard():
     }
     user = User.get_by_id(data)
     return render_template('dashboard.html', user = user)
+
+#-------------------------
+# Logout of user account
+#-------------------------
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
