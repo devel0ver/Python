@@ -9,9 +9,9 @@ while attempts > 0:
     
     user_input = input("Guess a letter: ")
     
-    # Conditional statement checking if the length of the user input is greater than 1
-    if len(user_input) > 1:
-        print("Please enter only one letter!")
+    # Conditional statement checking if the length of the user input does not equal to 1
+    if len(user_input) != 1:
+        print("Please only one letter!")
         # Go back and start again from line 4
         continue
     
