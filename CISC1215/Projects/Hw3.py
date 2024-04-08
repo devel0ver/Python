@@ -24,21 +24,50 @@ Note4: You can use list methods count, remove
 Note5: You can create any additional lists or variables that you want
 Note6: The order of the numbers in the returned list does not matter
 """
-input_list=[1,2,3,1,1,3,2,2,1]
-print(id(input_list))
+# input_list=[1,2,3,1,1,3,2,2,1]
+# print(id(input_list))
 
-#Write your code here
+# #Write your code here
+# for num in input_list:
+#     while input_list.count(num) > 1:
+#         input_list.remove(num)
 
-for num in input_list:
-    count = input_list.count(num)
-    # print("{} is {} times".format(num, count))
-    if count > 1:
-        for x in range(count - 1):
-            input_list.remove(num)
+# print(input_list)
+# print(id(input_list))
 
-print(input_list)
-print(id(input_list))
 
+
+# element_present = []
+# for element in input_list:
+#     if element not in element_present:
+#         element_present.append(element)
+# for element in element_present:
+#     while input_list.count(element) > 1:
+#         input_list.remove(element)
+
+# print(input_list)
+
+# x = set((1,2,4,5,6,8))
+# y = x.copy()
+# print(id(x))
+# print(id(y))
+# x.add(10)
+# print(x)
+# print(y)
+
+# x = '2'
+# y = '2'
+# z = x + y
+
+# x = [5,2,6,8,9]
+# print(x[::])
+# for i in range(len(x)):
+#     print(x[i])
+
+# x = [1,2,3]
+# y = x.copy()
+# x[0] = 4
+# print(x,y)
 
 """
 [5 Points] Comparing lists
@@ -54,40 +83,41 @@ Example run:
 Note1: You will use loops to solve this
 Note2: You can use conditional statements and the membership operator
 """
-A=[[1,2,3],[1,2],3,3,4,5]
-B=[[1,2,3],[1,2],3,4,5]
-#Write your code here
-A_Subset_B = True
-for num in A:
-    if num not in B or len(A) == len(B):
-        A_Subset_B = False
-        break
-if A_Subset_B and len(A) < len(B):
-    print("A is a proper subset of B")
+# A=[[1,2,3],[1,2],3,3,4,5]
+# B=[[1,2,3],[1,2],3,4,5]
+# #Write your code here
+# A_Subset_B = True
+# B_Subset_A = True
+# both_equal = True
 
-B_Subset_A = True
-for num in B:
-    if num not in A or len(A) == len(B):
-        B_Subset_A = False
-        break
-if B_Subset_A and len(B) < len(A):
-    print("B is a proper subset of A")
+# if len(A) == len(B):
+#     for num in A:
+#         if num not in B:
+#             both_equal = False
+#             break
+# elif len(A) < len(B):
+#     for num in A:
+#         if num not in B or len(A) == len(B):
+#             A_Subset_B = False
+#             break
+# elif len(B) < len(B):
+#     for num in B:
+#         if num not in A or len(A) == len(B):
+#             B_Subset_A = False
+#             break
+   
+# if len(A) == len(B) and both_equal:
+#     print("Two lists are equivalent")
+# elif len(A) == len(B) and not both_equal:
+#     print("Two lists are neither equivalent nor one subset of another")    
+# elif A_Subset_B and len(A) < len(B):
+#     print("A is a proper subset of B")
+# elif B_Subset_A and len(B) < len(A):
+#     print("B is a proper subset of A")
+       
 
-if not B_Subset_A and not A_Subset_B:
-    both_equiv = True
-    if len(A) == len(B):
-        for num in A:
-            if num not in B:
-                both_equiv = False
-                break
-        if both_equiv:
-            print("Two lists are equivalent")
-        else:
-            print("Two lists are neither equivalent nor one subset of another")
-    else:
-        print("Two lists are neither equivalent nor one subset of another")
 
-        
+
 
 """
 [5 Points] 2D sorting
@@ -101,17 +131,17 @@ Note3: You can use any list method to achieve this
 Note4: You can create a new list if you want to
 
 """
-A=[[1,2,3],[1,2],3,4,5]
-#Write your code here
-B = []
-for num in A:
-    if isinstance(num, list):
-        for element in num:
-            B.append(element)
-    else:
-        B.append(num)
-B.sort()
-print(B)
+# A=[[1,2,3],[1,2],3,4,5]
+# #Write your code here
+# B = []
+# for num in A:
+#     if isinstance(num, list):
+#         for element in num:
+#             B.append(element)
+#     else:
+#         B.append(num)
+# B.sort()
+# print(B)
     
 
 
@@ -129,12 +159,12 @@ Note1: You will use for loops to solve this, while loop is not allowed
 Note2: You cannot use any string methods to solve this
 """
 #Write your code here
-string_input = input("Please enter the string: ")
-substring_input = input("Please enter the substring: ")
-if substring_input in string_input:
-    print(True)
-else:
-    print(False)
+# string_input = input("Please enter the string: ")
+# substring_input = input("Please enter the substring: ")
+# if substring_input in string_input:
+#     print(True)
+# else:
+#     print(False)
 
 
 
@@ -152,24 +182,83 @@ Example run:
 """
 
 #Write your code here
-input_sentence = input("Please enter sentence: ")
-words = input_sentence.split()
+# input_sentence = input("Please enter sentence: ")
+# words = input_sentence.split()
 
-corrected_words = []
-for word in words:
-    corrected_word = ""
-    count = 0
-    for char in word:
-        if char not in ("$", "%", "#", "^", "*") and not char.isdigit():
-            if len(corrected_word) != 0 and char == corrected_word[-1]:
-                count += 1
-                corrected_word += char
-                continue
-            if count > 1:
-                corrected_word = corrected_word[0:len(corrected_word)-count]
-            count = 0
-            corrected_word += char
-    corrected_words.append(corrected_word)
+# corrected_words = []
+# for word in words:
+#     corrected_word = ""
+#     count = 0
+#     for char in word:
+#         if char not in ("$", "%", "#", "^", "*") and not char.isdigit():
+#             if len(corrected_word) != 0 and char == corrected_word[-1]:
+#                 count += 1
+#                 corrected_word += char
+#                 continue
+#             if count > 1:
+#                 corrected_word = corrected_word[0:len(corrected_word)-count]
+#             count = 0
+#             corrected_word += char
+#     corrected_words.append(corrected_word)
 
-corrected_sentence = " ".join(corrected_words)
-print(corrected_sentence)
+# corrected_sentence = " ".join(corrected_words)
+# print(corrected_sentence)
+
+
+
+# Define two sets
+# A = {1, 2, 3}
+# B = {1, 2, 3, 4, 5}
+
+# # A is a subset of B
+# is_subset = A <= B
+# print(f"A is a subset of B: {is_subset}")  # True
+
+# # A is a proper subset of B
+# is_proper_subset = A < B
+# print(f"A is a proper subset of B: {is_proper_subset}")  # True
+
+# # A is not a superset of B
+# is_superset = A >= B
+# print(f"A is a superset of B: {is_superset}")  # False
+
+# # A is not a proper superset of B
+# is_proper_superset = A > B
+# print(f"A is a proper superset of B: {is_proper_superset}")  # False
+
+# # Define another set C such that A is a superset of C
+# C = {2, 3}
+
+# # A is a superset of C
+# is_superset_C = A >= C
+# print(f"A is a superset of C: {is_superset_C}")  # True
+
+# # A is a proper superset of C
+# is_proper_superset_C = A > C
+# print(f"A is a proper superset of C: {is_proper_superset_C}")  # True
+
+# x = [1,2,3,4,5,6,7,8]
+# print(x[::1])
+
+# x = [1,2,3,2,1]
+
+# odd_same = True
+# for i in range(len(x)):
+#     if i % 2 != 0 and i < len(x)-2:
+#         if x[i] != x[i+2]:
+#             odd_same = False
+
+# print(odd_same)
+
+
+# counter = 0
+# x ="121121"
+# y = []
+
+# for i in range(len(x)):
+#     y.append(x[i])
+# for n in y:
+#     if int(n) == y.count(n):
+#         print(n)
+#         y.remove(n)
+
