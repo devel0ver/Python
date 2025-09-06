@@ -7,9 +7,12 @@
 def reverseString(str):
     newArr = []
     # Loop through the string to access each letter, from end to start
-    for letter in range(len(str)-1, -1, -1):
-        newArr.append(str[letter])
+    # for letter in range(len(str)-1, -1, -1):
+    #     newArr.append(str[letter])
         
+    for letter in str:
+        newArr.insert(0, letter)
+    print(newArr)
     return "".join(newArr)
 
     
