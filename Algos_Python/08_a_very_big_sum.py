@@ -13,6 +13,8 @@ import sys
 # The function accepts LONG_INTEGER_ARRAY ar as parameter.
 #
 
+
+
 def aVeryBigSum(ar):
     # Write your code here
     sum = 0
